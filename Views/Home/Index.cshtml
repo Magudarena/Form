@@ -1,8 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Form.Models.Dane
+
+@{
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Index</h1>
+
+<div>
+    <h4>Przejdź do formularza</h4>
+    <hr />
+
+</div>
+<div>
+
+    <a asp-action="Index">Back to List</a>
 </div>

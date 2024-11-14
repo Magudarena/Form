@@ -1,0 +1,91 @@
+﻿@model Form.Models.Dane
+@{
+    ViewData["Title"] = "Form";
+}
+@using (Html.BeginForm("Wynik", "Home", FormMethod.Post))
+{
+<form asp-action="Form" method="post">
+        <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Imie">Twoje imię</label>
+        <input asp-for="Imie" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Nazwisko">Twoje nazwisko</label>
+        <input asp-for="Nazwisko" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email">Twój Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Haslo">Hasło</label>
+        <input asp-for="Haslo" type="password" />
+        <span asp-validation-for="Haslo" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="PotwierdzenieHasla">Potwierdź hasło</label>
+        <input asp-for="PotwierdzenieHasla" type="password" />
+        <span asp-validation-for="PotwierdzenieHasla" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="NrTelefonu">Numer telefonu</label>
+        <input asp-for="NrTelefonu" type="tel" />
+        <span asp-validation-for="NrTelefonu" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Wiek">Wiek</label>
+        <input asp-for="Wiek" type="number" />
+        <span asp-validation-for="Wiek" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Miasto">Miasto  .</label><select name="Miasto" id="Miasto">
+            <option value=""></option>
+            <option value="Warszawa">Warszawa</option>
+            <option value="Kraków">Kraków</option>
+            <option value="Gdańsk">Gdańsk</option>
+            <option value="Wrocław">Wrocław</option>
+            <option value="Poznań">Poznań</option>
+        </select>
+
+        <span asp-validation-for="Miasto" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Temat">Temat</label>
+        <input asp-for="Temat" />
+        <span asp-validation-for="Temat" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Tresc">Treść</label>
+        <input asp-for="Tresc" />
+        <span asp-validation-for="Tresc" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Info">Info</label>
+            @Html.TextBoxFor(model => model.Info, new { @class = "form-control" })
+            <span asp-validation-for="Info" class="text-danger"></span>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Zarejestruj</button>
+        <button type="reset" class="btn btn-secondary">Wyczyść</button>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+}
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
